@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --Desaturated-Red: hsl(0, 36%, 70%);
+  --Soft-Red: hsl(0, 93%, 68%);
+  --Dark-Grayish-Red: hsl(0, 6%, 24%);
+  /* linear */
+  --red-one: Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%);
+  --red-two: Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%);
+}
+body {
+  font-family: 'Josefin Sans';
+  font-size: 16px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: 'sign-up-box master-image-box';
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+}
+
+.sign-up-box {
+  grid-area: sign-up-box;
+  background: url(./images/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 50px 200px 50px 150px;
+}
+
+.logo {
+  margin-bottom: 150px;
+}
+
+.master-heading {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 10px;
+  color: var(--Dark-Grayish-Red);
+  margin-bottom: 25px;
+}
+
+.light {
+  font-weight: 300;
+  color: var(--Desaturated-Red);
+}
+
+.master-para {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--Desaturated-Red);
+  letter-spacing: 1px;
+  line-height: 25px;
+  width: 490px;
+  margin-bottom: 35px;
+}
+
+.form {
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#input {
+  position: absolute;
+  width: 105%;
+  height: 100%;
+  outline: none;
+  border: 1px solid var(--Desaturated-Red);
+  border-radius: 50px;
+  padding-left: 30px;
+  font-size: 1.1rem;
+  color: var(--Desaturated-Red);
+}
+
+#input::placeholder {
+  color: hsla(0, 36%, 70%, 0.7);
+  font-size: 1rem;
+}
+
+#button {
+  position: absolute;
+  left: 85%;
+  width: 100px;
+  height: 100%;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  cursor: pointer;
+  box-shadow: 0px 0px 18px 1px var(--Desaturated-Red);
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+#button:hover {
+  background: linear-gradient(135deg, hsl(0, 46%, 75%), hsl(0, 59%, 62%));
+  transform: scale(1.1);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+#button:hover .arrow-icon {
+  transform: translateX(35px);
+}
+
+#error-icon {
+  display: inline-block;
+  position: absolute;
+  right: 20%;
+  top: 23%;
+  display: none;
+}
+
+#error-text {
+  position: absolute;
+  left: 30px;
+  top: 65px;
+  font-size: 1rem;
+  color: var(--Desaturated-Red);
+  display: none;
+}
+
+#success-text {
+  position: absolute;
+  left: 30px;
+  top: 65px;
+  font-size: 1rem;
+  color: var(--Desaturated-Red);
+  display: none;
+}
+
+/* ------master image section------ */
+.master-image-box {
+  grid-area: master-image-box;
+  width: 100%;
+  background: url(./images/hero-desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* media responsiveness */
+@media (max-width: 575px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .master-image-box {
+    background: url(./images/hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+    margin-top: 100px;
+  }
+  .sign-up-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px 50px;
+  }
+  #input {
+    right: 5%;
+  }
+  #error-text {
+    left: -8px;
+  }
+  #success-text {
+    left: -8px;
+  }
+  .form {
+    margin-bottom: 80px;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-150%);
+    margin-top: 40px;
+    z-index: 10;
+  }
+}
